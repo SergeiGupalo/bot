@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tidal-theater-448113-f9",
+  "private_key_id": "bf865a8ffdda9409091117daf58f0a0abfb4faa8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDFgdo3N5UZIJy/\n6Z8p8+yb52b4FmqilPG1scufbTlD6AhfhVGnEFPhMLF/r7CC6fd0IumbB50IPbRp\n5/ME13hKfMFlz+FK3ab+nyMUKV0/CFIlwX9at+AonYH1rbHNP9ojjVDO0PRmIXHU\nwwitOuz5FDOnOXEE/8HyfQvn9Q2g1TaifE/Pfx/Af/fSbf/zLVsAFJSpu7P3H6hq\neBnHUajcINMcq0/NTzaw78Onsbn2+thRJqgqoHyT9Q84GbT2dRXidoZF+bYf3r3x\npCAknmUglI3ID0mSxkVNCh5sjbvGm8cFVQgSuQ5Xa99UAtDYHqCBfzKwfnt/RQOd\nRHEuztl5AgMBAAECggEAF3/HLFmvIjG4pLbRqqasiLIkFLFqF5T8Gz+fuATBUvyI\n/oB4whVVvY3TGJuZN0JKIGXFAJ6Lxv68d/tSdUmDtO0Z/5iXuBYeN95MSKpRP14o\nk/htRChrgbmXzFjRtld6B0/ZhPnkkkA5cHSSFDZWGp6WNLfHZC5f74+EOqFz8SYn\nmzbgZHVVepUHJcWDiqW3Kjtl5ZtNikhmJp7DLpY0CZCpE+yy4e5/UFGouzAb8MkT\nxVwQnGrRKFU4un/S9XeJiILkHtcOwRcm04LZxGKUznsnJF0RjaNFtQGDgkxilAvv\nkLBrOnCBbiZIhC+48nLUk+du7RyTvDiPPUYn9ims/wKBgQDiPa5sZYqSXlIm+sVC\nbd+yiAhxrVx6IE7N3koDgrJMP+OqAGmMqs1bH5MxIU0xLytmT8InK+QDNhhGkdcN\nE1zgPzsY9YtA/LQF6OLCsHPqqvF+D0TVVFGmA4dOKLorwyQgi6sGd91arhn12cmg\nWdK5HqQUKqA7Jll8X+U9spdKfwKBgQDffJt5B8RCiBDVuXMEuddKvPD2+cWSZeU+\nc6h4nk3jMTxvAT6I42S+su6nBD1DoBnBrAmL5UL/LlfuVQ0TsdTsHGXGU/R4g5xy\nxZPFIF6j/R2VMiTTAQSbmddej5IzM9O4pKPzn6CgatXjKJCUzY7UPOtX5MhXd47h\nYf+Sr0wwBwKBgBFP9QP4dTUkIJc5A1VFASQxQqwoPvZdeIpKY1GHc8tf7DT7GRiZ\njWNWtDXDPZvw5xpKKipDMoyIXC0yRcmLXMUQMZ6EU6aib8gv/QI27HfdouMpmfPV\nIvZYOMdjWHO22BHhfjHdhEPHJNdqVgJ+PSDLVnTwmhhMo/ZfhDRHcUpTAoGBAI58\nq8NmqEKi7djV+/cvZYxJGnjclpLYVGiU5PzCMXaAlb9QU8aC9GCBRJdHpKfRE5rf\nTNbcvPJlYbqaj1PXNaG0GU9xh5SulLi4L5anJK/5WTseVUwSghWS6DVp5BSxHnPC\nxKU3SPn+I5BI9KVqyX2XuZS4UOMzXu1jxcaH7VNRAoGAYCjkvfXIVLFGlPtKhdKZ\n91E62GqdSNKR9xlhmjVWQqRSbB7H2GK++tLY8NWgOqk1l8xY5RtLdycUCSUFrqv1\nzCki2OvtT2qcopU/G4iWhMIMRftv0nBLzl7aBCjA8jdSdarJDdJjVXAoXkjCM/tb\npzYKzjpkiL9O+U6h0WXjgEM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "project-test@tidal-theater-448113-f9.iam.gserviceaccount.com",
+  "client_id": "102567618766785700936",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/project-test%40tidal-theater-448113-f9.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

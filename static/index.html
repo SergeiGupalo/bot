@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech to Text App</title>
+    <style>
+        /* Загальні стилі */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 18px;
+            color: #7f8c8d;
+        }
+
+        .controls {
+            margin: 20px 0;
+        }
+
+        .btn {
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #start-btn {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        #start-btn:hover {
+            background-color: #2ecc71;
+        }
+
+        #stop-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        #stop-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .output {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        #transcription {
+            font-size: 16px;
+            color: #34495e;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Вітаю! Я тут, щоб вислухати тебе.</h1>
+        <p>Розкажи, що тебе турбує.</p>
+        <p>Запис аудіо:</p>
+        <p>- ліміт 15 хвилин</p>
+        <p>- кнопка зупинки</p>
+        
+        <div class="controls">
+            <button id="start-btn" class="btn">Старт</button>
+            <button id="stop-btn" class="btn" disabled>Стоп</button>
+        </div>
+
+        <div class="output">
+            <h2>Твої слова:</h2>
+            <p id="transcription">Почни запис, щоб побачити текст...</p>
+        </div>
+    </div>
+
+    <script>
+        const startBtn = document.getElementById('start-btn');
+        const stopBtn = document.getElementById('stop-btn');
+        const transcriptionElement = document.getElementById('transcription');
+        let mediaRecorder;
+        let audioChunks = [];
+
+        startBtn.addEventListener('click', () => {
+            transcriptionElement.textContent = 'Запис триває...';
+            startBtn.disabled = true;
+            stopBtn.disabled = false;
+
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    mediaRecorder = new MediaRecorder(stream);
+                    mediaRecorder.start();
+
+                    mediaRecorder.addEventListener('dataavailable', event => {
+                        audioChunks.push(event.data);
+                    });
+                })
+                .catch(err => {
+                    transcriptionElement.textContent = 'Помилка доступу до мікрофона!';
+                    startBtn.disabled = false;
+                    stopBtn.disabled = true;
+                });
+        });
+
+        stopBtn.addEventListener('click', () => {
+            transcriptionElement.textContent = 'Обробка запису...';
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+
+            mediaRecorder.stop();
+            mediaRecorder.addEventListener('stop', () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                const formData = new FormData();
+                formData.append('audio', audioBlob);
+
+                fetch('/upload', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        transcriptionElement.textContent = `Відповів: ${data.message}`;
+                    } else {
+                        transcriptionElement.textContent = 'Сервер не повернув текст.';
+                    }
+                })
+                .catch(err => {
+                    transcriptionElement.textContent = 'Помилка під час відправки на сервер!';
+                    console.error(err);
+                });
+
+                audioChunks = [];
+            });
+        });
+    </script>
+</body>
+</html>
